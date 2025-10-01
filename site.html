@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #f5f3f0;
+            --sand: #e8e4df;
+            --sage: #9ca89c;
+            --mauve: #b8a8b8;
+            --dusty-blue: #8b9db5;
+            --slate: #6b7280;
+            --charcoal: #2d3436;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 243, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            padding: 2rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: lowercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--mauve);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--mauve);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 3rem 0 1.5rem;
+            color: var(--slate);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--slate);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid var(--sand);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(139, 157, 181, 0.12);
+            border-color: var(--dusty-blue);
+        }
+
+        .card h3 {
+            color: var(--charcoal);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card .meta {
+            color: var(--slate);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--dusty-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            background: var(--mauve);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(184, 168, 184, 0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+                padding: 1.5rem 0;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page {
+                padding: 6rem 1.5rem 3rem;
+            }
+        }
+
+        .floating-accent {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: var(--mauve);
+            opacity: 0.04;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .accent-1 {
+            top: 10%;
+            left: -10%;
+        }
+
+        .accent-2 {
+            bottom: 20%;
+            right: -10%;
+            background: var(--dusty-blue);
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, 50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-accent accent-1"></div>
+    <div class="floating-accent accent-2"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#bio" onclick="showPage('bio')">bio</a></li>
+            <li><a href="#papers" onclick="showPage('papers')">papers</a></li>
+            <li><a href="#projects" onclick="showPage('projects')">projects</a></li>
+            <li><a href="#blog" onclick="showPage('blog')">blog</a></li>
+            <li><a href="#cv" onclick="showPage('cv')">cv</a></li>
+        </ul>
+    </nav>
+
+    <div id="bio" class="page active">
+        <div class="hero">
+            <h1>Your Name</h1>
+            <p class="subtitle">researcher / builder / thinker</p>
+        </div>
+        
+        <p>I'm a [your field] researcher focused on [your interests]. My work explores the intersection of [topic A] and [topic B], with a particular emphasis on [specific area].</p>
+        
+        <p>Currently, I'm [current position/affiliation], where I'm working on [current projects or research]. Previously, I was at [previous institution/company], contributing to [past work].</p>
+        
+        <p>My approach combines [methodology 1] with [methodology 2] to address fundamental questions about [your research questions]. I believe in [your philosophy or approach to your work].</p>
+
+        <a href="#papers" onclick="showPage('papers')" class="cta-button">view my work</a>
+    </div>
+
+    <div id="papers" class="page">
+        <h1>Papers</h1>
+        <p class="subtitle">Selected publications and preprints</p>
+
+        <div class="card">
+            <h3>Paper Title Goes Here: A Comprehensive Study</h3>
+            <div class="meta">Journal Name, 2024 • with Coauthor A, Coauthor B</div>
+            <p>Brief description of the paper's contribution and findings. This should be a clear, accessible summary of what you discovered and why it matters.</p>
+        </div>
+
+        <div class="card">
+            <h3>Another Interesting Research Direction</h3>
+            <div class="meta">Conference Name, 2023 • with Coauthor C</div>
+            <p>A concise overview of the research problem, your approach, and the key results. Make it compelling but accessible.</p>
+        </div>
+
+        <div class="card">
+            <h3>Early Work on Foundational Topics</h3>
+            <div class="meta">Workshop/Venue, 2022 • Solo authored</div>
+            <p>Description of this work and its significance to your broader research trajectory.</p>
+        </div>
+    </div>
+
+    <div id="projects" class="page">
+        <h1>Projects</h1>
+        <p class="subtitle">Things I'm building and exploring</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Project Alpha</h3>
+                <div class="meta">ongoing</div>
+                <p>A brief description of what this project is about, what technologies you're using, and what problem it solves.</p>
+            </div>
+
+            <div class="card">
+                <h3>Experiment Beta</h3>
+                <div class="meta">2024</div>
+                <p>Details about this experimental project, what you learned, and where it's heading.</p>
+            </div>
+
+            <div class="card">
+                <h3>Tool Gamma</h3>
+                <div class="meta">2023</div>
+                <p>An explanation of this tool, who it's for, and why you built it.</p>
+            </div>
+
+            <div class="card">
+                <h3>Side Quest</h3>
+                <div class="meta">completed</div>
+                <p>A fun side project that taught you something valuable or scratched a particular itch.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog" class="page">
+        <h1>Blog</h1>
+        <p class="subtitle">Thoughts and observations</p>
+
+        <div class="card">
+            <h3>On [Interesting Topic]</h3>
+            <div class="meta">October 2024</div>
+            <p>A preview of your thoughts on this topic. The first paragraph should hook the reader and make them want to read more.</p>
+        </div>
+
+        <div class="card">
+            <h3>Lessons from [Experience or Project]</h3>
+            <div class="meta">September 2024</div>
+            <p>What you learned from a particular experience and how it shaped your thinking about your work.</p>
+        </div>
+
+        <div class="card">
+            <h3>Reflecting on [Big Idea]</h3>
+            <div class="meta">August 2024</div>
+            <p>A deeper exploration of a concept that's been on your mind, and why it matters.</p>
+        </div>
+    </div>
+
+    <div id="cv" class="page">
+        <h1>CV</h1>
+        <p class="subtitle">Education, experience, and recognition</p>
+
+        <h2>Education</h2>
+        <div class="card">
+            <h3>Ph.D. in [Field]</h3>
+            <div class="meta">University Name, 2020-2024</div>
+            <p>Dissertation: [Title]. Advised by [Advisor Name].</p>
+        </div>
+
+        <div class="card">
+            <h3>B.S. in [Field]</h3>
+            <div class="meta">University Name, 2016-2020</div>
+            <p>Graduated with honors. Focus on [specific area].</p>
+        </div>
+
+        <h2>Experience</h2>
+        <div class="card">
+            <h3>Current Position</h3>
+            <div class="meta">Institution/Company, 2024-present</div>
+            <p>Brief description of your current role and responsibilities.</p>
+        </div>
+
+        <div class="card">
+            <h3>Previous Role</h3>
+            <div class="meta">Institution/Company, 2022-2024</div>
+            <p>What you did and what impact you made.</p>
+        </div>
+
+        <h2>Selected Honors</h2>
+        <p>• Award Name, Organization (2024)<br>
+        • Fellowship Name (2023)<br>
+        • Recognition Title (2022)</p>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Smooth nav highlight on scroll
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.style.color = '');
+                this.style.color = 'var(--mauve)';
+            });
+        });
+    </script>
+</body>
+</html>
