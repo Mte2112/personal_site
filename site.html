@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name</title>
+    <title>M. Elling</title>
     <style>
         * {
             margin: 0;
@@ -242,6 +242,16 @@
             animation-delay: -10s;
         }
 
+        .card h3 a {
+            text-decoration: none;
+            color: inherit; /* keeps same color as h3 */
+            transition: color 0.3s ease;
+        }
+
+        .card h3 a:hover {
+            color: var(--dusty-blue); /* or var(--mauve) for a softer hover */
+        }
+
         @keyframes float {
             0%, 100% {
                 transform: translate(0, 0);
@@ -274,7 +284,7 @@
         
         <p>I'm a researcher focused on the impacts of climate on people and the environment. My work explores the intersection of climate and society, with a particular emphasis on human health. A main focus of my work is to decompose climate information into actionable insights that are useful for decision making.</p>
         
-        <p>Currently, I'm a Atmospheric and Oceanic Sciences PhD student at the University of Colorado Boulder, where I'm researching the impacts of climate variability on malaria in Malawi and building a global climate-health risk index. Previously, I was at NASA Goddard Institute for Space Studies, where I focused on establishing an model evaluation framework through a climate impacts lens.</p>
+        <p>Currently, I'm an Atmospheric and Oceanic Sciences PhD student at the University of Colorado Boulder, where I'm researching the impacts of climate variability on malaria in Malawi and building a global climate-health risk index. Previously, I was at NASA Goddard Institute for Space Studies, where I focused on establishing an model evaluation framework through a climate impacts lens.</p>
         
         <p>My approach combines climate observational records and model output with health and socioeconomic data to address fundamental questions about how climate variability and change impact people. I believe in scientific research with a focus on implications for society. I am a strong advocate for interdisciplinary research and cross-disciplinary collaboration.</p>
 
@@ -283,25 +293,40 @@
 
     <div id="papers" class="page">
         <h1>Papers</h1>
-        <p class="subtitle">Selected publications and preprints</p>
+        <p class="subtitle">Journal articles</p>
 
         <div class="card">
-            <h3>Paper Title Goes Here: A Comprehensive Study</h3>
-            <div class="meta">Journal Name, 2024 • with Coauthor A, Coauthor B</div>
-            <p>Brief description of the paper's contribution and findings. This should be a clear, accessible summary of what you discovered and why it matters.</p>
+            <h3>
+                <a href="https://doi.org/10.3390/atmos16080920" target="_blank" rel="noopener noreferrer">
+                    Temperature and Precipitation Extremes Under SSP Emission Scenarios with GISS-E2.1 Model
+                </a>
+            </h3>
+            <div class="meta">Atmosphere, 2025</div>
+            Larissa S. Nazarenko, Nickolai L. Tausnev, and Maxwell T. Elling
         </div>
 
         <div class="card">
-            <h3>Another Interesting Research Direction</h3>
-            <div class="meta">Conference Name, 2023 • with Coauthor C</div>
-            <p>A concise overview of the research problem, your approach, and the key results. Make it compelling but accessible.</p>
+            <h3>
+                <a href="https://doi.org/10.1038/s41467-025-56356-1" target="_blank" rel="noopener noreferrer">
+                    Impacts of irrigation expansion on moist-heat stress based on IRRMIP results
+                </a>
+            </h3>
+            <div class="meta">Nature communications, 2025</div>
+            Yi Yao, Agnès Ducharne, Benjamin I. Cook, Steven J. De Hertog, Kjetil Schanke Aas, Pedro F. Arboleda-Obando, Jonathan Buzan, Jeanne Colin, Maya Costantini, Bertrand Decharme, David M. Lawrence, Peter Lawrence, L. Ruby Leung, Min-Hui Lo, Narayanappa Devaraju, William R. Wieder, Ren-Jie Wu, Tian Zhou, Jonas Jägermeyr, Sonali McDermid, Yadu Pokhrel, Maxwell Elling, Naota Hanasaki, Paul Muñoz, Larissa S. Nazarenko, Kedar Otta, Yusuke Satoh, Tokuta Yokohata, Lei Jin, Xuhui Wang, Vimal Mishra, Subimal Ghosh & Wim Thiery
         </div>
 
         <div class="card">
-            <h3>Early Work on Foundational Topics</h3>
-            <div class="meta">Workshop/Venue, 2022 • Solo authored</div>
-            <p>Description of this work and its significance to your broader research trajectory.</p>
+            <h3>
+                <a href="https://doi.org/10.1038/s43247-025-02527-3" target="_blank" rel="noopener noreferrer">
+                    East Asian aerosol cleanup has likely contributed to the recent acceleration in global warming
+                </a>
+            </h3>
+            <div class="meta">Communications Earth & Environment, 2025</div>
+            Bjørn H. Samset, Laura J. Wilcox, Robert J. Allen, Camilla W. Stjern, Marianne T. Lund, Sharar Ahmadi, Annica Ekman, Maxwell T. Elling, Luke Fraser-Leach, Paul Griffiths, James Keeble, Tsuyoshi Koshiro, Paul Kushner, Anna Lewinschal, Risto Makkonen, Joonas Merikanto, Pierre Nabat, Larissa Narazenko, Declan O’Donnell, Naga Oshima, Steven T. Rumbold, Toshihiko Takemura, Kostas Tsigaridis & Daniel M. Westervelt 
         </div>
+
+        <p class="subtitle">Technical reports</p>
+
     </div>
 
     <div id="projects" class="page">
