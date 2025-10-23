@@ -226,6 +226,24 @@
             }
         }
 
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            display: block;
+            border: 3px solid var(--sand);
+            box-shadow: 0 4px 12px rgba(107, 114, 128, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(139, 157, 181, 0.15);
+            border-color: var(--dusty-blue);
+        }
+
         .floating-accent {
             position: fixed;
             width: 400px;
@@ -286,6 +304,7 @@
 
     <div id="bio" class="page active">
         <div class="hero">
+            <img src="images/headshot.jpeg" alt="Max Elling" class="profile-photo">
             <h1>Maxwell T. Elling</h1>
             <p class="subtitle">Currently CU Boulder, formerly NASA GISS</p>
             <p class="subtitle2">max.elling@colorado.edu</p>
