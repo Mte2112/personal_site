@@ -167,6 +167,81 @@
             margin-bottom: 0;
         }
 
+        #projects .card {
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0;
+            border: none;
+        }
+
+        #projects .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
+            transition: background 0.3s ease;
+            z-index: 1;
+        }
+
+        #projects .card:hover::before {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        #projects .card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        #projects .card-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+        }
+
+        #projects .card h3 {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            margin: 0 0 8px 0;
+            color: white;
+        }
+
+        #projects .card h3 a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #projects .card .meta {
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        #projects .card p {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, max-height 0.3s ease;
+            margin: 0;
+            color: white;
+        }
+
+        #projects .card:hover p {
+            opacity: 1;
+            max-height: 500px;
+        }
+
         .hero {
             text-align: center;
             padding: 6rem 0;
@@ -310,11 +385,11 @@
             <p class="subtitle2">max.elling@colorado.edu</p>
         </div>
         
-        <p>I'm a researcher focused on the impacts of climate on people and the environment. My work explores the intersection of climate and society, with a particular emphasis on human health. A main focus of my work is to decompose climate information into actionable insights that are useful for decision making.</p>
+        <p><b>I'm a researcher studying climate variability and change</b>, particularly in relation to societal impacts.</p>
         
-        <p>Currently, I'm an Atmospheric and Oceanic Sciences PhD student at the University of Colorado Boulder, where I'm researching the impacts of climate variability on malaria in Malawi and building a global climate-health risk index. Previously, I was at NASA Goddard Institute for Space Studies, where I evaluated climate models with a focus on extremes and impacts, and developed software.</p>
+        <p>Currently, <b>I'm an Atmospheric and Oceanic Sciences PhD student at the University of Colorado Boulder</b>, where I'm researching the impacts of climate variability on malaria in Malawi and building a global climate-health risk index. <b>Previously, I was at NASA Goddard Institute for Space Studies</b>, where I evaluated climate models with a focus on climate extremes and other impact-relevant metrics, and developed software.</p>
         
-        <p>My approach combines climate observational records and model output with health and socioeconomic data to address fundamental questions about how climate impacts people. I believe in scientific research with a focus on implications for society and I am a strong advocate for interdisciplinary research.</p>
+        <p>My approach combines climate observational records and model output with health and socioeconomic data to <b>address fundamental questions about how climate variability and change impact people</b>, exploring both past impacts and future risks. I believe in scientific research with a focus on implications for society and I am a strong advocate for interdisciplinary research.</p>
 
         <a href="#papers" onclick="showPage('papers')" class="cta-button">view my work</a>
     </div>
@@ -466,54 +541,62 @@
 
     </div>
 
+    <!-- PROJECTS -->
     <div id="projects" class="page">
-        <h1>Projects</h1>
-        <p class="subtitle">Other projects & tools I've helped build</p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>
-                    <a href="https://cakeclimate.org" target="_blank" rel="noopener noreferrer">
-                        CAKE
-                    </a>
-                </h3>
+    <h1>Projects</h1>
+    <p class="subtitle">Other projects & tools I've helped build</p>
+    <div class="grid">
+        <div class="card" style="background-image: url('images/cakelogo.png'); background-size: 80%">
+        <div class="card-content">
+            <h3>
+            <a href="https://cakeclimate.org" target="_blank" rel="noopener noreferrer">
+                CAKE
+            </a>
+            </h3>
             <div class="meta">2025</div>
-                Climate Action Knowledge Exchange (CAKE) is an interdisciplinary climate community I am building with a couple colleagues. We are currently bringing together climate professionals across discplines (science, policy, engineering, and more) to collaborate on climate issues and form partnerships.
-            </div>
+            <p>Climate Action Knowledge Exchange (CAKE) is an interdisciplinary climate community I am building with a couple colleagues. We are currently bringing together climate professionals across disciplines (science, policy, engineering, and more) to collaborate on climate issues and form partnerships.</p>
+        </div>
+        </div>
 
-            <div class="card">
-                <h3>
-                    <a href="http://greent-freight.io/" target="_blank" rel="noopener noreferrer">
-                        GREENT
-                    </a>
-                </h3>
+        <div class="card" style="background-image: url('images/greent.jpg'); background-size: 175%">
+        <div class="card-content">
+            <h3>
+            <a href="http://greent-freight.io/" target="_blank" rel="noopener noreferrer">
+                GREENT
+            </a>
+            </h3>
             <div class="meta">2024</div>
-                GREENT is a user-friendly, web-based tool that enables users to evaluate emissions and energy consumption from intermodal transportation. It is basically Google Maps, but for intermodal freight transportation, with in-depth carbon emissions tracking. 
-            </div>
+            <p>GREENT is a user-friendly, web-based tool that enables users to evaluate emissions and energy consumption from intermodal transportation. It is basically Google Maps, but for intermodal freight transportation, with in-depth carbon emissions tracking.</p>
+        </div>
+        </div>
 
-            <div class="card">
-                <h3>
-                    <a href="https://safet.io/tools/shipai" target="_blank" rel="noopener noreferrer">
-                        Ship AI Assistant
-                    </a>
-                </h3>
+        <div class="card" style="background-image: url('images/shipai.jpg');">
+        <div class="card-content">
+            <h3>
+            <a href="https://safet.io/tools/shipai" target="_blank" rel="noopener noreferrer">
+                Ship AI Assistant
+            </a>
+            </h3>
             <div class="meta">2024</div>
-                Chatbot tailored for marine policy, fuel standards, shipping, and emissions inquiries
-            </div>
+            <p>Chatbot tailored for marine policy, fuel standards, shipping, and emissions inquiries</p>
+        </div>
+        </div>
 
-            <div class="card">
-                <h3>
-                    <a href="https://safet.io/index" target="_blank" rel="noopener noreferrer">
-                        SAFE-T
-                    </a>
-                </h3>
+        <div class="card" style="background-image: url('images/safet.jpg')">
+        <div class="card-content">
+            <h3>
+            <a href="https://safet.io/index" target="_blank" rel="noopener noreferrer">
+                SAFE-T
+            </a>
+            </h3>
             <div class="meta">2023</div>
-                SAFE-T provides tools enabling shippers to track fuel use and emissions, compare the carbon intensity of different shipping routes, and compare properties of conventional and alternative marine fuels.
-            </div>
-    
+            <p>SAFE-T provides tools enabling shippers to track fuel use and emissions, compare the carbon intensity of different shipping routes, and compare properties of conventional and alternative marine fuels.</p>
+        </div>
         </div>
     </div>
+    </div>
 
+    <!-- BLOG -->
     <div id="blog" class="page">
         <h1>Blog</h1>
         <p class="subtitle">Coming soon...</p>
